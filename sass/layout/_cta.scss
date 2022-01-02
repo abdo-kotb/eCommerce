@@ -1,0 +1,15 @@
+@use '../utils/variables' as *;
+
+.cta {
+  background-color: $primary-color;
+  margin-bottom: $section-gap;
+
+  &__img {
+    height: 15rem;
+
+    img {
+      transform: $translate-img;
+      object-fit: cover;
+    }
+  }
+}

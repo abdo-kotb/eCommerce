@@ -1,0 +1,20 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.header {
+  @include borderMain(top, $primary-color);
+
+  .logo {
+    display: inline-block;
+    font-family: $head-font;
+    text-transform: uppercase;
+    font-weight: $head-bold;
+    font-size: $huge-f-size;
+    letter-spacing: $huge-space;
+    transition: $def-transition;
+
+    &:hover {
+      transform: $def-skew;
+    }
+  }
+}

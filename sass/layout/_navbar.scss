@@ -1,0 +1,18 @@
+@use '../utils/variables' as *;
+
+.upper-nav {
+  padding-bottom: unset;
+}
+
+.main-nav {
+  padding-top: unset;
+
+  .nav-link {
+    color: inherit;
+    text-transform: capitalize;
+    transition: $def-transition;
+    &:hover {
+      text-shadow: 0 5px 10px rgba($secondary-color, 0.75);
+    }
+  }
+}

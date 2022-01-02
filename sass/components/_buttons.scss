@@ -1,0 +1,44 @@
+@use '../utils/variables' as *;
+
+.btn {
+  transition: $slow-transition;
+  position: relative;
+
+  &--main {
+    background-color: $secondary-color;
+    padding: {
+      left: 1rem;
+      right: 1rem;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba($secondary-color, 0.2);
+
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        background-color: $secondary-color;
+        opacity: 0;
+      }
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba($secondary-color, 0.2);
+    }
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: $def-transition;
+  }
+}

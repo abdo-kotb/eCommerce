@@ -1,0 +1,102 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.hero {
+  margin-bottom: $section-gap;
+  .row {
+    max-height: 40rem;
+    overflow: hidden;
+
+    @include respond(md) {
+      max-height: unset;
+    }
+    @include respond(xxl) {
+      max-height: 45rem;
+    }
+  }
+  &__img--big {
+    transform: $translate-img;
+  }
+
+  .left-col {
+    background-color: $primary-color;
+  }
+
+  &__text {
+    padding: 3.6rem;
+  }
+}
+
+.gallery {
+  margin-bottom: $section-gap;
+  &__img {
+    position: relative;
+
+    &--big {
+      height: calc(100% - 1.5rem);
+      object-fit: cover;
+    }
+  }
+
+  .figure {
+    &-caption {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba($primary-color, 0.8);
+      width: 90%;
+      text-align: center;
+      color: inherit;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.section-about {
+  padding-bottom: $section-gap;
+
+  &::after {
+    content: 'FASHION';
+    font-family: $head-font;
+    color: $accent;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(15%);
+    font-size: clamp(5rem, 20vw, 15rem);
+
+    @include respond(md) {
+      display: none;
+    }
+  }
+}
+.about {
+  background-color: $primary-color-light;
+
+  &__text {
+    z-index: 1;
+  }
+}
+
+.new {
+  margin-bottom: $section-gap;
+  .slider {
+    background-color: $primary-color-light;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    cursor: pointer;
+    @include respond(sm) {
+      flex-wrap: wrap;
+    }
+
+    &__img {
+      height: 12rem;
+      object-fit: cover;
+      margin-bottom: 2rem;
+    }
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}

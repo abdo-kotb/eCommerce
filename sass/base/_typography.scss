@@ -1,0 +1,51 @@
+@use '../utils/variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Proza+Libre:wght@400;600&display=swap');
+
+body {
+  font-family: $text-font;
+  color: $secondary-color;
+  line-height: 1.6;
+}
+
+a:link,
+a:visited {
+  font-family: inherit;
+  text-decoration: none;
+  &,
+  &:hover {
+    color: inherit;
+  }
+}
+
+.heading-secondary,
+.heading-tertiary {
+  font-family: $head-font;
+  text-transform: uppercase;
+  transition: $def-transition;
+
+  &:hover {
+    transform: $def-skew;
+  }
+}
+
+.heading-secondary {
+  font-weight: $head-bold;
+}
+
+.heading-tertiary {
+  margin-bottom: 1.5rem;
+}
+
+.slider {
+  &__heading {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    font-weight: $text-bold;
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+}

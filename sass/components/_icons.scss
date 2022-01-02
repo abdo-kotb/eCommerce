@@ -1,0 +1,12 @@
+@use '../utils/variables' as *;
+
+.icon {
+  height: $icons-size;
+
+  &-list {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+  }
+}

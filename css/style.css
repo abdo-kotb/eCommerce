@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Proza+Libre:wght@400;600&display=swap");
+* {
+  border-radius: 0 !important;
+}
+
+.brand {
+  text-transform: uppercase;
+}
+
+body {
+  font-family: "Proza Libre", sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+a:link,
+a:visited {
+  font-family: inherit;
+  text-decoration: none;
+}
+a:link, a:link:hover,
+a:visited,
+a:visited:hover {
+  color: inherit;
+}
+
+.heading-secondary,
+.heading-tertiary {
+  font-family: "Cormorant Garamond", serif;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+.heading-secondary:hover,
+.heading-tertiary:hover {
+  transform: skew(-20deg);
+}
+
+.heading-secondary {
+  font-weight: 500;
+}
+
+.heading-tertiary {
+  margin-bottom: 1.5rem;
+}
+
+.slider__heading {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.slider__text {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.icon {
+  height: 1.5rem;
+}
+.icon-list {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+.btn {
+  transition: 0.5s;
+  position: relative;
+}
+.btn--main {
+  background-color: #1a1a1a;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.btn--main:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(26, 26, 26, 0.2);
+}
+.btn--main:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  background-color: #1a1a1a;
+  opacity: 0;
+}
+.btn--main:active, .btn--main:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(26, 26, 26, 0.2);
+}
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: 0.3s;
+}
+
+.lazy-container {
+  overflow: hidden;
+}
+.lazy-img {
+  filter: blur(10px);
+}
+
+.upper-nav {
+  padding-bottom: unset;
+}
+
+.main-nav {
+  padding-top: unset;
+}
+.main-nav .nav-link {
+  color: inherit;
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+.main-nav .nav-link:hover {
+  text-shadow: 0 5px 10px rgba(26, 26, 26, 0.75);
+}
+
+.header {
+  border-top: 8px solid #e8ded1;
+}
+.header .logo {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 3.5rem;
+  letter-spacing: 10px;
+  transition: 0.3s;
+}
+.header .logo:hover {
+  transform: skew(-20deg);
+}
+
+.cta {
+  background-color: #e8ded1;
+  margin-bottom: 10rem;
+}
+.cta__img {
+  height: 15rem;
+}
+.cta__img img {
+  transform: translateY(-3rem);
+  object-fit: cover;
+}
+
+.footer {
+  padding-top: 4rem;
+  background-color: #e8ded1;
+  border-bottom: 8px solid #1a1a1a;
+}
+.footer__link {
+  position: relative;
+  display: inline-block;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.footer__link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #1a1a1a;
+  transition: 0.3s;
+}
+.footer__link:hover::before {
+  width: 100%;
+}
+@media only screen and (max-width: 36em) {
+  .footer .icon-list {
+    justify-content: center;
+  }
+}
+
+.hero {
+  margin-bottom: 10rem;
+}
+.hero .row {
+  max-height: 40rem;
+  overflow: hidden;
+}
+@media only screen and (max-width: 62em) {
+  .hero .row {
+    max-height: unset;
+  }
+}
+@media only screen and (min-width: 78.5em) {
+  .hero .row {
+    max-height: 45rem;
+  }
+}
+.hero__img--big {
+  transform: translateY(-3rem);
+}
+.hero .left-col {
+  background-color: #e8ded1;
+}
+.hero__text {
+  padding: 3.6rem;
+}
+
+.gallery {
+  margin-bottom: 10rem;
+}
+.gallery__img {
+  position: relative;
+}
+.gallery__img--big {
+  height: calc(100% - 1.5rem);
+  object-fit: cover;
+}
+.gallery .figure-caption {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(232, 222, 209, 0.8);
+  width: 90%;
+  text-align: center;
+  color: inherit;
+  text-transform: uppercase;
+}
+
+.section-about {
+  padding-bottom: 10rem;
+}
+.section-about::after {
+  content: "FASHION";
+  font-family: "Cormorant Garamond", serif;
+  color: #f8f8f8;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(15%);
+  font-size: clamp(5rem, 20vw, 15rem);
+}
+@media only screen and (max-width: 62em) {
+  .section-about::after {
+    display: none;
+  }
+}
+
+.about {
+  background-color: #efe8df;
+}
+.about__text {
+  z-index: 1;
+}
+
+.new {
+  margin-bottom: 10rem;
+}
+.new .slider {
+  background-color: #efe8df;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  cursor: pointer;
+}
+@media only screen and (max-width: 48em) {
+  .new .slider {
+    flex-wrap: wrap;
+  }
+}
+.new .slider__img {
+  height: 12rem;
+  object-fit: cover;
+  margin-bottom: 2rem;
+}
+.new .slider:active {
+  cursor: grabbing;
+}
+
+/*# sourceMappingURL=style.css.map */

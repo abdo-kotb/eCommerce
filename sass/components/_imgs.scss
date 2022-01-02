@@ -1,0 +1,8 @@
+.lazy {
+  &-container {
+    overflow: hidden;
+  }
+  &-img {
+    filter: blur(10px);
+  }
+}

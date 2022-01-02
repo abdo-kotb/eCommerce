@@ -1,0 +1,35 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.footer {
+  padding-top: 4rem;
+  background-color: $primary-color;
+  @include borderMain(bottom, $secondary-color);
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: $secondary-color;
+      transition: $def-transition;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+  .icon-list {
+    @include respond(xs) {
+      justify-content: center;
+    }
+  }
+}
