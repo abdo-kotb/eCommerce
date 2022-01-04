@@ -17,4 +17,13 @@
       transform: $def-skew;
     }
   }
+
+  &__icon {
+    fill: transparent;
+    transition: $def-transition;
+
+    &:hover {
+      fill: $secondary-color;
+    }
+  }
 }

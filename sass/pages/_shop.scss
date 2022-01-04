@@ -1,0 +1,149 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.hero {
+  &__shop {
+    background-image: url(../img/hero-shop.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -5rem;
+
+    @include respond(sm) {
+      background-position-y: 0;
+    }
+  }
+  &__text {
+    background-color: $primary-color;
+  }
+}
+
+.market {
+  margin-bottom: $section-gap;
+
+  &__sort {
+    @include respond(xs) {
+      font-size: 0.8rem;
+    }
+  }
+
+  .sort-select {
+    border: none;
+    background: none;
+    outline: none;
+
+    &:focus {
+      border-color: #86b7fe;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+    }
+  }
+
+  &__card {
+    position: relative;
+
+    &::after {
+      content: '\f004';
+      font-family: 'Font Awesome 5 Free';
+      font-size: 3rem;
+      color: $primary-color;
+      position: absolute;
+      left: 50%;
+      top: 25%;
+      transform: translateX(-50%);
+      opacity: 0;
+      visibility: hidden;
+      cursor: pointer;
+      transition: $slow-transition;
+    }
+    &:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+    &.bookmarked::after {
+      font-weight: 900;
+    }
+  }
+
+  &__img {
+    transition: $slow-transition;
+    &:hover {
+      filter: blur(5px);
+    }
+  }
+
+  &__heading {
+    font-size: 1rem;
+    font-weight: $text-bold;
+    margin-top: 1rem;
+  }
+
+  &__cat {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+  }
+
+  .accordion-button {
+    padding: 0.5rem 1.5rem;
+    background-color: $primary-color;
+    color: inherit;
+    box-shadow: inset 0 -1px 0 rgba($primary-color, 13%);
+
+    &::after {
+      filter: grayscale(1);
+    }
+  }
+
+  .form-check-input {
+    &:checked {
+      background-color: $secondary-color;
+      border-color: $secondary-color;
+    }
+  }
+
+  &__pagination {
+    .page-link {
+      border: none;
+    }
+
+    .page-item.active .page-link {
+      background-color: $secondary-color;
+    }
+  }
+
+  &__slider {
+    margin-top: 2rem;
+    height: 2px;
+    border: none;
+
+    .noUi-connect {
+      background-color: $secondary-color;
+    }
+
+    .noUi-base {
+      background-color: rgba($secondary-color, 0.3);
+    }
+
+    .noUi-tooltip {
+      bottom: -15%;
+      transform: translate(-50%, 100%);
+      border: none;
+
+      &::before {
+        content: '$';
+      }
+    }
+
+    & .noUi-handle {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50% !important;
+      background: $secondary-color;
+      box-shadow: none;
+      border: none;
+
+      &::before {
+        content: none;
+      }
+    }
+  }
+}

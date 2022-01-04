@@ -48,12 +48,12 @@
             ></label>
           </form>
           <h1><a href="#" class="navbar-brand logo">Shop&nbsp;It</a></h1>
-          <div class="header__icons d-flex gap-3">
+          <div class="d-flex gap-3">
             <a href="#" aria-label="user account">
               <svg
                 aria-label="user account"
                 xmlns="http://www.w3.org/2000/svg"
-                class="icon"
+                class="header__icon icon"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -70,7 +70,7 @@
             <a href="#" aria-label="bookmark">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="icon"
+                class="header__icon icon"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -87,7 +87,7 @@
             <a href="#" aria-label="cart">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="icon"
+                class="header__icon icon"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -162,15 +162,19 @@
 
     <main>
       <section class="section-hero">
-        <div class="container hero">
+        <div class="container hero hero__home">
           <div class="row row-cols-1 row-cols-lg-2 g-0">
             <div class="col left-col row-cols-1 g-0">
               <div class="col">
-                <img
-                  src="img/hero-1.jpg"
-                  alt="a woman holding shopping bags"
-                  class="img-fluid"
-                />
+                <picture>
+                  <source srcset="img/hero-1.webp" type="image/webp" />
+                  <source srcset="img/hero-1.jpg" type="image/jpg" />
+                  <img
+                    src="img/hero-1.jpg"
+                    alt="a woman holding shopping bags"
+                    class="img-fluid"
+                  />
+                </picture>
               </div>
               <div class="col">
                 <div class="hero__text">
@@ -180,16 +184,25 @@
                     Quasi eum inventore sequi ipsum minus commodi sint sunt,
                     doloribus rerum aperiam!
                   </p>
-                  <button class="btn btn--main text-white">Shop now</button>
+                  <a
+                    class="btn btn--main text-white"
+                    href="html/shop.html"
+                    type="button"
+                    >Shop now</a
+                  >
                 </div>
               </div>
             </div>
             <div class="col d-none d-lg-block">
-              <img
-                src="img/hero-2.jpg"
-                alt="A woman standing in front of a sight in Italy"
-                class="img-fluid hero__img--big"
-              />
+              <picture>
+                <source srcset="img/hero-2.webp" type="image/webp" />
+                <source srcset="img/hero-2.jpg" type="image/jpg" />
+                <img
+                  src="img/hero-2.jpg"
+                  alt="A woman standing in front of a sight in Italy"
+                  class="img-fluid hero__img--big"
+                />
+              </picture>
             </div>
           </div>
         </div>

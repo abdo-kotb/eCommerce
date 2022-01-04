@@ -3,7 +3,7 @@
 
 .hero {
   margin-bottom: $section-gap;
-  .row {
+  &__home .row {
     max-height: 40rem;
     overflow: hidden;
 
