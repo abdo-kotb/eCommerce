@@ -1,0 +1,22 @@
+@use '../utils/variables' as *;
+
+.details {
+  margin-bottom: $section-gap;
+  &__img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .heading-product {
+    font-family: $head-font;
+    text-transform: uppercase;
+  }
+}
+
+.recommendation {
+  margin-bottom: $section-gap;
+}
+
+.recent {
+  margin-bottom: $section-gap;
+}

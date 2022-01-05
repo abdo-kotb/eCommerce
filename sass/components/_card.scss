@@ -1,0 +1,45 @@
+@use '../utils/variables' as *;
+
+.product-card {
+  position: relative;
+
+  &::after {
+    content: '\f004';
+    font-family: 'Font Awesome 5 Free';
+    font-size: 3rem;
+    color: $primary-color;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    transition: $slow-transition;
+  }
+  &:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+  &.bookmarked::after {
+    font-weight: 900;
+  }
+
+  &__img {
+    transition: $slow-transition;
+    &:hover {
+      filter: blur(5px);
+    }
+  }
+
+  &__heading {
+    font-size: 1rem;
+    font-weight: $text-bold;
+    margin-top: 1rem;
+  }
+
+  &__cat {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,12 @@
+@use '../utils/variables' as *;
+
+.accordion-button {
+  padding: 0.5rem 1.5rem !important;
+  background-color: $primary-color !important;
+  color: inherit !important;
+  box-shadow: inset 0 -1px 0 rgba($primary-color, 13%) !important;
+
+  &::after {
+    filter: grayscale(1) !important;
+  }
+}

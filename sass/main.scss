@@ -4,6 +4,8 @@
 @use './components/icons';
 @use './components/buttons';
 @use './components/imgs';
+@use './components/accordion';
+@use './components/card';
 
 @use './layout/navbar';
 @use './layout/header';
@@ -12,3 +14,4 @@
 
 @use './pages/home';
 @use './pages/shop';
+@use './pages/product';
