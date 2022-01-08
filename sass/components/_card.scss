@@ -1,35 +1,13 @@
 @use '../utils/variables' as *;
+@use '../utils/mixins' as *;
 
 .product-card {
+  @include specIconHover;
   position: relative;
-
-  &::after {
-    content: '\f004';
-    font-family: 'Font Awesome 5 Free';
-    font-size: 3rem;
-    color: $primary-color;
-    position: absolute;
-    left: 50%;
-    top: 25%;
-    transform: translateX(-50%);
-    opacity: 0;
-    visibility: hidden;
-    cursor: pointer;
-    transition: $slow-transition;
-  }
-  &:hover::after {
-    opacity: 1;
-    visibility: visible;
-  }
-  &.bookmarked::after {
-    font-weight: 900;
-  }
+  overflow: hidden;
 
   &__img {
     transition: $slow-transition;
-    &:hover {
-      filter: blur(5px);
-    }
   }
 
   &__heading {
@@ -41,5 +19,9 @@
   &__cat {
     font-size: 0.8rem;
     margin-bottom: 0;
+  }
+
+  &:hover &__img {
+    filter: blur(3px);
   }
 }

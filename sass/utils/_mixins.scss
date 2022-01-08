@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 @mixin borderMain($dir, $color) {
   border-#{$dir}: 8px solid $color;
 }
@@ -32,5 +34,27 @@
     @media only screen and (min-width: 78.5em) {
       @content;
     }
+  }
+}
+
+@mixin specIcon($dirX, $translate) {
+  position: absolute;
+  top: 1rem;
+  #{$dirX}: 2rem;
+  // pointer-events: none;
+  transform: translateX($translate);
+  transition: $def-transition;
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    stroke: $primary-color-dark;
+  }
+}
+
+@mixin specIconHover {
+  &:hover .bookmark-icon,
+  &:hover .cart-icon {
+    transform: translateX(0);
   }
 }

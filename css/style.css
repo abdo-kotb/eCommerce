@@ -133,33 +133,13 @@ a:visited:hover {
 
 .product-card {
   position: relative;
+  overflow: hidden;
 }
-.product-card::after {
-  content: "\f004";
-  font-family: "Font Awesome 5 Free";
-  font-size: 3rem;
-  color: #e8ded1;
-  position: absolute;
-  left: 50%;
-  top: 25%;
-  transform: translateX(-50%);
-  opacity: 0;
-  visibility: hidden;
-  cursor: pointer;
-  transition: 0.5s;
-}
-.product-card:hover::after {
-  opacity: 1;
-  visibility: visible;
-}
-.product-card.bookmarked::after {
-  font-weight: 900;
+.product-card:hover .bookmark-icon, .product-card:hover .cart-icon {
+  transform: translateX(0);
 }
 .product-card__img {
   transition: 0.5s;
-}
-.product-card__img:hover {
-  filter: blur(5px);
 }
 .product-card__heading {
   font-size: 1rem;
@@ -169,6 +149,40 @@ a:visited:hover {
 .product-card__cat {
   font-size: 0.8rem;
   margin-bottom: 0;
+}
+.product-card:hover .product-card__img {
+  filter: blur(3px);
+}
+
+.bookmark-icon {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  transform: translateX(-5rem);
+  transition: 0.3s;
+}
+.bookmark-icon .icon {
+  width: 2rem;
+  height: 2rem;
+  stroke: #bab2a7;
+}
+
+.cart-icon {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  transform: translateX(5rem);
+  transition: 0.3s;
+}
+.cart-icon .icon {
+  width: 2rem;
+  height: 2rem;
+  stroke: #bab2a7;
+}
+
+.bookmarked .bookmark-icon .icon,
+.carted .cart-icon .icon {
+  fill: #bab2a7;
 }
 
 .upper-nav {

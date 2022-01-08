@@ -1,0 +1,15 @@
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.bookmark-icon {
+  @include specIcon(left, -5rem);
+}
+
+.cart-icon {
+  @include specIcon(right, 5rem);
+}
+
+.bookmarked .bookmark-icon .icon,
+.carted .cart-icon .icon {
+  fill: $primary-color-dark;
+}
