@@ -10,7 +10,6 @@
       left: 1rem;
       right: 1rem;
     }
-
     &:hover {
       transform: translateY(-3px);
       box-shadow: 0 1rem 2rem rgba($secondary-color, 0.2);
@@ -28,17 +27,35 @@
       transform: translateY(-1px);
       box-shadow: 0 0.5rem 1rem rgba($secondary-color, 0.2);
     }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: $def-transition;
+    }
   }
 
-  &::after {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: $def-transition;
+  &--check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    font-size: inherit;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid $secondary-color;
+    color: $secondary-color;
+  }
+
+  &-check:checked + &--check {
+    background-color: $secondary-color;
+    color: #fff;
+    box-shadow: none;
   }
 }

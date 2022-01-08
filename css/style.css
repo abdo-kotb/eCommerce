@@ -86,7 +86,7 @@ a:visited:hover {
   transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(26, 26, 26, 0.2);
 }
-.btn::after {
+.btn--main::after {
   content: "";
   display: inline-block;
   height: 100%;
@@ -96,6 +96,22 @@ a:visited:hover {
   left: 0;
   z-index: -1;
   transition: 0.3s;
+}
+.btn--check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  font-size: inherit;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+}
+.btn-check:checked + .btn--check {
+  background-color: #1a1a1a;
+  color: #fff;
+  box-shadow: none;
 }
 
 .lazy-container {
@@ -406,6 +422,88 @@ a:visited:hover {
   content: none;
 }
 
+.product-hero {
+  background-color: #efe8df;
+  margin-bottom: 8rem;
+  position: relative;
+  font-size: 0.8rem;
+}
+.product-hero .swiper {
+  width: 100%;
+  height: 75vh;
+}
+.product-hero .swiper-slide {
+  opacity: 0.6;
+  transition: 0.5s;
+  width: auto;
+  height: 90%;
+}
+.product-hero .img-fluid {
+  height: 100%;
+  object-fit: cover;
+}
+.product-hero .swiper-slide-active {
+  height: 100%;
+  opacity: 1;
+}
+.product-hero .swiper-slide-active .img-fluid {
+  transform: scaleX(1.05);
+}
+.product-hero .swiper-button-next,
+.product-hero .swiper-rtl .swiper-button-prev {
+  right: 40%;
+}
+@media only screen and (max-width: 62em) {
+  .product-hero .swiper-button-next,
+.product-hero .swiper-rtl .swiper-button-prev {
+    left: 19.7rem;
+  }
+}
+.product-hero .swiper-button-prev,
+.product-hero .swiper-rtl .swiper-button-next {
+  left: 40%;
+}
+@media only screen and (max-width: 62em) {
+  .product-hero .swiper-button-prev,
+.product-hero .swiper-rtl .swiper-button-next {
+    left: 0;
+  }
+}
+.product-hero .swiper-button-next:after,
+.product-hero .swiper-button-prev:after {
+  color: #1a1a1a;
+  font-size: 1.5rem;
+}
+.product-hero__add {
+  height: 100%;
+  top: 0;
+  left: 10%;
+  background-color: #e8ded1;
+  z-index: 10;
+  padding: 2rem;
+  overflow: hidden;
+}
+@media only screen and (max-width: 62em) {
+  .product-hero__add {
+    width: 45%;
+  }
+}
+@media only screen and (max-width: 75em) {
+  .product-hero__add {
+    left: unset;
+    right: 0;
+  }
+}
+.product-hero__select {
+  font-size: 0.8rem;
+  color: #777;
+}
+.product-hero .size-heading {
+  float: unset;
+  margin-bottom: 0;
+  font-size: inherit;
+}
+
 .details {
   margin-bottom: 8rem;
 }
@@ -416,6 +514,9 @@ a:visited:hover {
 .details .heading-product {
   font-family: "Cormorant Garamond", serif;
   text-transform: uppercase;
+}
+.details__icon {
+  height: 2rem;
 }
 
 .recommendation {

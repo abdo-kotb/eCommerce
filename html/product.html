@@ -8,8 +8,11 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="../css/all.min.css" />
 
-    <!-- nouislider css -->
-    <link rel="stylesheet" href="../sass/vendors/nouislider.min.css" />
+    <!-- swiper css -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
 
     <!-- bootstrap css -->
     <link
@@ -22,8 +25,11 @@
     <!-- custom css -->
     <link rel="stylesheet" href="../css/style.css" />
 
-    <!-- uislider JS -->
-    <script defer src="../js/nouislider.min.js"></script>
+    <!-- swiper JS -->
+    <script
+      defer
+      src="https://unpkg.com/swiper@7/swiper-bundle.min.js"
+    ></script>
 
     <!-- bootstrap JS -->
     <script
@@ -147,18 +153,15 @@
                 <a class="nav-link" href="../index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#" aria-current="page"
-                  >Shop by style</a
+                <a class="nav-link" href="./shop.html">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  href="./product.html"
+                  aria-current="page"
+                  >Product</a
                 >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Shop collection</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Size chart</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Find us</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"
@@ -173,19 +176,122 @@
 
     <main>
       <section class="section-hero">
-        <div class="container-fluid">
-          <div class="row row-cols-lg-3 flex-nowrap overflow-hidden">
-            <div class="col">
-              <img class="img-fluid" src="../img/product-hero.jpg" alt="" />
+        <div class="container-fluid product-hero">
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <img
+                  class="img-fluid"
+                  src="../img/product-hero.jpg"
+                  alt="a woman with grey shirt and white pants"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="img-fluid"
+                  src="../img/product-hero-2.jpg"
+                  alt="a woman with grey shirt and white pants"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="img-fluid"
+                  src="../img/product-hero-3.jpg"
+                  alt="a woman with grey shirt and white pants"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="img-fluid"
+                  src="../img/market-7.jpg"
+                  alt="a woman with grey shirt and white pants"
+                />
+              </div>
             </div>
-            <div class="col">
-              <img class="img-fluid" src="../img/product-hero-2.jpg" alt="" />
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+
+          <div class="product-hero__add position-absolute">
+            <h2 class="heading-secondary">Product name</h2>
+            <p class="mb-1">product Category</p>
+            <p class="product-hero__price">$999</p>
+            <div class="mb-3">
+              <label for="select-shirt" class="form-label">Shirt size</label>
+              <select
+                class="form-select product-hero__select"
+                name="shirt"
+                id="select-shirt"
+              >
+                <option name="shirt" selected disabled>Select Option</option>
+              </select>
             </div>
-            <div class="col">
-              <img class="img-fluid" src="../img/product-hero-3.jpg" alt="" />
+            <div class="mb-3">
+              <label for="select-pants" class="form-label">Pants Length</label>
+              <select
+                class="form-select product-hero__select"
+                name="pants"
+                id="select-pants"
+              >
+                <option name="pants" selected disabled>Select Option</option>
+              </select>
             </div>
-            <div class="col">
-              <img class="img-fluid" src="../img/market-7.jpg" alt="" />
+            <fieldset class="btn-group gap-2 mb-2">
+              <legend class="size-heading">Size</legend>
+              <input
+                type="radio"
+                class="btn-check"
+                name="size"
+                id="xs"
+                autocomplete="off"
+                checked
+              />
+              <label class="btn btn--check" for="xs">XS</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="size"
+                id="s"
+                autocomplete="off"
+              />
+              <label class="btn btn--check" for="s">S</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="size"
+                id="m"
+                autocomplete="off"
+              />
+              <label class="btn btn--check" for="m">M</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="size"
+                id="l"
+                autocomplete="off"
+              />
+              <label class="btn btn--check" for="l">L</label>
+            </fieldset>
+            <div class="quantity-field">
+              <label for="quan" class="d-block">Quantity</label>
+              <input
+                type="number"
+                class="form-control w-25 mb-3"
+                id="quan"
+                min="1"
+                placeholder="1"
+              />
+            </div>
+            <div class="d-grid">
+              <button class="btn btn--main text-white">Add to bag</button>
             </div>
           </div>
         </div>
@@ -193,12 +299,13 @@
 
       <section class="section-details">
         <div class="container">
-          <div class="row details row-cols-lg-2">
-            <div class="col">
+          <div class="row details row-cols-1 row-cols-lg-2 gy-4">
+            <div class="col lazy-container">
               <img
-                src="../img/product-details.jpg"
+                src="../img/product-details-lazy.jpg"
                 alt="woman in grey switter and white pants"
-                class="img-fluid details__img"
+                class="img-fluid details__img lazy-img"
+                data-behavior="lazy"
               />
             </div>
 
@@ -343,13 +450,25 @@
               </div>
               <ul class="details__icons list-inline mt-3 text-center">
                 <li class="list-inline-item">
-                  <a href="#"><i class="fab fa-facebook-f fa-2x"></i></a>
+                  <a href="https://icons8.com/icon/118468/facebook"
+                    ><img
+                      class="details__icon"
+                      src="https://img.icons8.com/ios/50/000000/facebook-new.png"
+                  /></a>
                 </li>
                 <li class="list-inline-item">
-                  <a href="#"><i class="fab fa-twitter-square fa-2x"></i></a>
+                  <a href="https://icons8.com/icon/437/twitter"
+                    ><img
+                      class="details__icon"
+                      src="https://img.icons8.com/ios/50/000000/twitter--v1.png"
+                  /></a>
                 </li>
                 <li class="list-inline-item">
-                  <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                  <a href="https://icons8.com/icon/32292/instagram"
+                    ><img
+                      class="details__icon"
+                      src="https://img.icons8.com/ios/50/000000/instagram-new--v1.png"
+                  /></a>
                 </li>
               </ul>
             </div>
@@ -360,10 +479,10 @@
       <section class="section-recommendation">
         <div class="container recommendation">
           <h2 class="heading-secondary">You can also check out</h2>
-          <div class="row row-cols-lg-5">
+          <div class="row row-cols-2 row-cols-lg-5">
             <div class="col product-card">
               <img
-                src="../img/market-1.jpg"
+                src="../img/market-1-lazy.jpg"
                 alt="shop image"
                 data-behavior="lazy"
                 class="product-card__img lazy-img img-fluid"
@@ -376,7 +495,7 @@
             </div>
             <div class="col product-card">
               <img
-                src="../img/market-1.jpg"
+                src="../img/market-2-lazy.jpg"
                 alt="shop image"
                 data-behavior="lazy"
                 class="product-card__img lazy-img img-fluid"
@@ -389,7 +508,7 @@
             </div>
             <div class="col product-card">
               <img
-                src="../img/market-1.jpg"
+                src="../img/market-3-lazy.jpg"
                 alt="shop image"
                 data-behavior="lazy"
                 class="product-card__img lazy-img img-fluid"
@@ -402,7 +521,7 @@
             </div>
             <div class="col product-card">
               <img
-                src="../img/market-1.jpg"
+                src="../img/market-4-lazy.jpg"
                 alt="shop image"
                 data-behavior="lazy"
                 class="product-card__img lazy-img img-fluid"
@@ -415,7 +534,7 @@
             </div>
             <div class="col product-card">
               <img
-                src="../img/market-1.jpg"
+                src="../img/market-5-lazy.jpg"
                 alt="shop image"
                 data-behavior="lazy"
                 class="product-card__img lazy-img img-fluid"
@@ -433,10 +552,10 @@
       <section class="section-recent">
         <div class="container recent">
           <h2 class="heading-secondary">Recently viewed</h2>
-          <div class="row row-cols-lg-5">
+          <div class="row row-cols-2 row-cols-lg-5">
             <div class="col product-card">
               <img
-                src="../img/market-1.jpg"
+                src="../img/gallery-1-lazy.jpg"
                 alt="shop image"
                 data-behavior="lazy"
                 class="product-card__img lazy-img img-fluid"
@@ -449,7 +568,7 @@
             </div>
             <div class="col product-card">
               <img
-                src="../img/market-1.jpg"
+                src="../img/gallery-2-lazy.jpg"
                 alt="shop image"
                 data-behavior="lazy"
                 class="product-card__img lazy-img img-fluid"
@@ -462,7 +581,7 @@
             </div>
             <div class="col product-card">
               <img
-                src="../img/market-1.jpg"
+                src="../img/gallery-3-lazy.jpg"
                 alt="shop image"
                 data-behavior="lazy"
                 class="product-card__img lazy-img img-fluid"
@@ -475,7 +594,7 @@
             </div>
             <div class="col product-card">
               <img
-                src="../img/market-1.jpg"
+                src="../img/gallery-4-lazy.jpg"
                 alt="shop image"
                 data-behavior="lazy"
                 class="product-card__img lazy-img img-fluid"
@@ -488,7 +607,7 @@
             </div>
             <div class="col product-card">
               <img
-                src="../img/market-1.jpg"
+                src="../img/gallery-5-lazy.jpg"
                 alt="shop image"
                 data-behavior="lazy"
                 class="product-card__img lazy-img img-fluid"

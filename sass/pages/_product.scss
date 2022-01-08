@@ -1,4 +1,95 @@
 @use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.product-hero {
+  background-color: $primary-color-light;
+  margin-bottom: $section-gap;
+  position: relative;
+  font-size: 0.8rem;
+
+  .swiper {
+    width: 100%;
+    height: 75vh;
+
+    @include respond(sm) {
+      // display: none;
+    }
+  }
+
+  .swiper-slide {
+    opacity: 0.6;
+    transition: $slow-transition;
+    width: auto;
+    height: 90%;
+  }
+
+  .img-fluid {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper-slide-active {
+    // width: 35.6rem !important;
+    height: 100%;
+    opacity: 1;
+    .img-fluid {
+      transform: scaleX(1.05);
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    right: 40%;
+
+    @include respond(md) {
+      left: 19.7rem;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next {
+    left: 40%;
+
+    @include respond(md) {
+      left: 0;
+    }
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    color: $secondary-color;
+    font-size: 1.5rem;
+  }
+
+  &__add {
+    height: 100%;
+    top: 0;
+    left: 10%;
+    background-color: $primary-color;
+    z-index: 10;
+    padding: 2rem;
+    overflow: hidden;
+
+    @include respond(md) {
+      width: 45%;
+    }
+    @include respond(lg) {
+      left: unset;
+      right: 0;
+    }
+  }
+
+  &__select {
+    font-size: 0.8rem;
+    color: #777;
+  }
+
+  .size-heading {
+    float: unset;
+    margin-bottom: 0;
+    font-size: inherit;
+  }
+}
 
 .details {
   margin-bottom: $section-gap;
@@ -10,6 +101,10 @@
   .heading-product {
     font-family: $head-font;
     text-transform: uppercase;
+  }
+
+  &__icon {
+    height: 2rem;
   }
 }
 
