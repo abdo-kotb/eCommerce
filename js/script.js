@@ -79,6 +79,38 @@ const addProduct = function (className) {
   product.classList.toggle(className);
 };
 
+const persistItem = function (arr) {
+  localStorage.setItem('cartedItem', JSON.stringify(arr));
+};
+
+const cartedItemsArr = [];
+
+const cartItems = function (item) {
+  if (cartedItemsArr.every(obj => obj.img !== item.img))
+    cartedItemsArr.push(item);
+  persistItem(cartedItemsArr);
+};
+
+const deCartItems = function (item) {
+  cartedItemsArr.forEach(obj => {
+    if (obj.img === item.img) cartedItemsArr.splice(obj, 1);
+    persistItem(cartedItemsArr);
+  });
+};
+
+const createItemObj = function () {
+  const product = this.closest('.product-card');
+  const img = product.querySelector('.product-card__img').src;
+  const imgStartIndex = img.indexOf('img/');
+  const price = product.querySelector('.product-card__price').innerText;
+  const item = {
+    img: img.slice(imgStartIndex),
+    price: price,
+  };
+  if (product.classList.contains('carted')) cartItems(item);
+  else deCartItems(item);
+};
+
 document.addEventListener('DOMContentLoaded', function () {
   renderIcons();
   bookmarkIcons = document.querySelectorAll('.bookmark-icon');
@@ -86,7 +118,73 @@ document.addEventListener('DOMContentLoaded', function () {
   bookmarkIcons.forEach(icon =>
     icon.addEventListener('click', addProduct.bind(icon, 'bookmarked'))
   );
-  cartIcons.forEach(icon =>
-    icon.addEventListener('click', addProduct.bind(icon, 'carted'))
-  );
+  cartIcons.forEach(icon => {
+    icon.addEventListener('click', function () {
+      addProduct.call(icon, 'carted');
+      createItemObj.call(icon);
+    });
+  });
 });
+
+const cartContainer = document.querySelector('.cart__container');
+
+const clearCartContainer = function () {
+  cartContainer.innerHTML = '';
+};
+
+const renderCartedItems = function (items) {
+  const headHTML = `
+    <h2 class="heading-tertiary h3">
+      Cart <span class="cart__items-count">(${items.length} items)</span>
+    </h2>
+  `;
+  cartContainer.insertAdjacentHTML('beforeend', headHTML);
+
+  items.forEach(item => {
+    const itemHTML = `
+      <div class="row row cart__item gy-4 pt-4">
+        <div class="item-col col-sm-6 col-lg-3">
+          <div class="cart__img">
+            <img
+              src="../${item.img}"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
+        </div>
+        <div class="cart__details col-sm-6 col-lg-4">
+          <h3 class="cart__heading m-0">Product name</h3>
+          <p class="cart__cat">Product category</p>
+          <p class="m-0">Color: Grey</p>
+          <p class="mb-5">Size: XL</p>
+          <p class="cart__action">Remove from cart</p>
+          <br />
+          <p class="cart__action">Move to bookmarks</p>
+        </div>
+        <div class="cart__quan col-sm-6 col-lg-4">
+          <label for="quan" class="form-label pe-2">Quantity</label>
+          <input
+            type="number"
+            class="form-control d-inline-block w-25"
+            id="quan"
+            placeholder="1"
+            min="1"
+          />
+        </div>
+        <div class="cart__price col-sm-6 col-lg-1 text-lg-end">
+          <p>${item.price}</p>
+        </div>
+      </div>
+    `;
+
+    cartContainer.insertAdjacentHTML('beforeend', itemHTML);
+  });
+};
+
+if (window.location.pathname === '/html/cart.html') {
+  const cartedItems = JSON.parse(localStorage.getItem('cartedItem'));
+
+  clearCartContainer();
+
+  renderCartedItems(cartedItems);
+}
