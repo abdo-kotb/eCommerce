@@ -11,17 +11,7 @@
     display: inline-block;
     text-transform: capitalize;
     margin-bottom: 10px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background-color: $secondary-color;
-      transition: $def-transition;
-    }
-
+    @include linksLine(0);
     &:hover::before {
       width: 100%;
     }

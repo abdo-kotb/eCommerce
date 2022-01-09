@@ -12,7 +12,9 @@
 @use './layout/header';
 @use './layout/cta';
 @use './layout/footer';
+@use './layout/hero-action';
 
 @use './pages/home';
 @use './pages/shop';
 @use './pages/product';
+@use './pages/cart';

@@ -41,7 +41,7 @@
   position: absolute;
   top: 1rem;
   #{$dirX}: 2rem;
-  // pointer-events: none;
+  cursor: pointer;
   transform: translateX($translate);
   transition: $def-transition;
 
@@ -56,5 +56,17 @@
   &:hover .bookmark-icon,
   &:hover .cart-icon {
     transform: translateX(0);
+  }
+}
+
+@mixin linksLine($width) {
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: $width;
+    height: 2px;
+    background-color: $secondary-color;
+    transition: $def-transition;
   }
 }

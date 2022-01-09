@@ -23,6 +23,7 @@ a:visited {
   font-family: $head-font;
   text-transform: uppercase;
   transition: $def-transition;
+  display: inline-block;
 
   &:hover {
     transform: $def-skew;

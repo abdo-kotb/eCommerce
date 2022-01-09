@@ -1,0 +1,17 @@
+@use '../utils/variables' as *;
+
+.hero-action {
+  margin-bottom: $section-gap;
+  background-image: url(../img/cart-hero.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__heading {
+    width: fit-content;
+    max-width: 100%;
+    background-color: $primary-color;
+    margin-bottom: 0;
+    padding: 2rem 1rem;
+    font-size: 2.5rem;
+  }
+}
