@@ -72,15 +72,47 @@ const renderIcons = function () {
 
 let bookmarkIcons;
 let cartIcons;
+const cartedProducts = [];
+const allProducts = document.querySelectorAll('.product-card');
+
+const getImgOfProductCard = function (product) {
+  const startIndex = product.innerHTML.indexOf('img/');
+  const endIndex = product.innerHTML.indexOf('.jpg');
+  const productImg = product.innerHTML.slice(startIndex, endIndex + 4);
+  return productImg;
+};
+
+const persistProductCarted = function (products) {
+  localStorage.setItem('cartedProducts', JSON.stringify(products));
+};
+
+const retrieveProductCarted = function () {
+  localStorage.getItem('cartedProducts') &&
+    cartedProducts.push(...JSON.parse(localStorage.getItem('cartedProducts')));
+};
+
+// localStorage.clear();
 
 const addProduct = function (className) {
   const product = this.closest('.product-card');
 
+  const productImg = getImgOfProductCard(product);
+
   product.classList.toggle(className);
+
+  if (product.classList.contains(className)) cartedProducts.push(productImg);
+  else cartedProducts.splice(cartedProducts.indexOf(productImg), 1);
+
+  persistProductCarted(cartedProducts);
 };
 
 const persistItem = function (arr) {
   localStorage.setItem('cartedItem', JSON.stringify(arr));
+};
+
+const retrieveItem = function () {
+  localStorage.getItem('cartedItem') &&
+    cartedItemsArr.push(...JSON.parse(localStorage.getItem('cartedItem')));
 };
 
 const cartedItemsArr = [];
@@ -94,8 +126,8 @@ const cartItems = function (item) {
 const deCartItems = function (item) {
   cartedItemsArr.forEach(obj => {
     if (obj.img === item.img) cartedItemsArr.splice(obj, 1);
-    persistItem(cartedItemsArr);
   });
+  persistItem(cartedItemsArr);
 };
 
 const createItemObj = function () {
@@ -113,6 +145,9 @@ const createItemObj = function () {
 
 document.addEventListener('DOMContentLoaded', function () {
   renderIcons();
+  retrieveProductCarted();
+  retrieveItem();
+
   bookmarkIcons = document.querySelectorAll('.bookmark-icon');
   cartIcons = document.querySelectorAll('.cart-icon');
   bookmarkIcons.forEach(icon =>
@@ -122,6 +157,15 @@ document.addEventListener('DOMContentLoaded', function () {
     icon.addEventListener('click', function () {
       addProduct.call(icon, 'carted');
       createItemObj.call(icon);
+    });
+  });
+
+  allProducts.forEach(product => {
+    const productImg = getImgOfProductCard(product).replace('-lazy', '');
+    const productsCarted = cartedProducts;
+
+    productsCarted.forEach(src => {
+      if (src === productImg) product.classList.add('carted');
     });
   });
 });
@@ -182,9 +226,8 @@ const renderCartedItems = function (items) {
 };
 
 if (window.location.pathname === '/html/cart.html') {
-  const cartedItems = JSON.parse(localStorage.getItem('cartedItem'));
-
-  clearCartContainer();
-
-  renderCartedItems(cartedItems);
+  window.addEventListener('DOMContentLoaded', function () {
+    cartedItemsArr.length && clearCartContainer();
+    renderCartedItems(cartedItemsArr);
+  });
 }
