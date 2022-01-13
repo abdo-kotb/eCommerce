@@ -1,0 +1,57 @@
+@use '../utils/variables' as *;
+
+.bookmarks {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  padding: 1rem;
+  background-color: $primary-color;
+  z-index: 9000;
+  transform: translateX(150%);
+  transition: 1s;
+  overflow-y: auto;
+}
+
+.preview {
+  align-items: center;
+  gap: 3rem;
+  padding: 1rem 0.5rem;
+
+  .preview__fig {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(
+        to right bottom,
+        $primary-color,
+        $primary-color-light
+      );
+      opacity: 0.4;
+    }
+  }
+
+  &__img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: $text-bold;
+  }
+
+  &__cat {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+}

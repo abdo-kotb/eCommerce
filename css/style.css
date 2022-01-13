@@ -56,12 +56,26 @@ a:visited:hover {
 
 .icon {
   height: 1.5rem;
+  transition: 0.3s;
 }
 .icon-list {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
   text-transform: capitalize;
+}
+
+.cross-icon {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.cross-icon:hover {
+  background-color: #1a1a1a;
+}
+.cross-icon:hover .icon {
+  stroke: #e8ded1;
 }
 
 .btn {
@@ -281,6 +295,53 @@ a:visited:hover {
   margin-bottom: 0;
   padding: 2rem 1rem;
   font-size: 2.5rem;
+}
+
+.bookmarks {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  padding: 1rem;
+  background-color: #e8ded1;
+  z-index: 9000;
+  transform: translateX(150%);
+  transition: 1s;
+  overflow-y: auto;
+}
+
+.preview {
+  align-items: center;
+  gap: 3rem;
+  padding: 1rem 0.5rem;
+}
+.preview .preview__fig {
+  position: relative;
+}
+.preview .preview__fig::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right bottom, #e8ded1, #efe8df);
+  opacity: 0.4;
+}
+.preview__img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  object-position: bottom;
+}
+.preview__title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.preview__cat {
+  font-size: 0.8rem;
+  margin: 0;
 }
 
 .hero {

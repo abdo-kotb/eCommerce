@@ -2,11 +2,27 @@
 
 .icon {
   height: $icons-size;
+  transition: $def-transition;
 
   &-list {
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
     text-transform: capitalize;
+  }
+}
+
+.cross-icon {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: $slow-transition;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+
+  &:hover .icon {
+    stroke: $primary-color;
   }
 }

@@ -51,7 +51,7 @@
             ></label>
           </form>
           <h1><a href="#" class="navbar-brand logo">Shop&nbsp;It</a></h1>
-          <div class="d-flex gap-3">
+          <div class="d-flex gap-3 user-links">
             <a href="#" aria-label="user account">
               <svg
                 aria-label="user account"
@@ -70,7 +70,7 @@
               </svg>
             </a>
 
-            <a href="#" aria-label="bookmark">
+            <a href="#" aria-label="bookmark" class="bookmarks-btn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="header__icon icon"
@@ -103,6 +103,33 @@
                 />
               </svg>
             </a>
+
+            <div class="bookmarks">
+              <div class="cross-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+              <h3 class="heading-tertiary text-capitalize text-center d-block">
+                Your bookmarks
+              </h3>
+              <ul class="bookmarks__list list-unstyled">
+                <li class="preview d-flex">
+                  You have not bookmarked any items yet
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
