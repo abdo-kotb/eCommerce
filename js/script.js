@@ -256,6 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 bookmarksBtn.addEventListener('click', function (e) {
   e.preventDefault();
+  addBookmarksToPage();
   bookmarkWindow(0);
 });
 
@@ -327,16 +328,21 @@ const removeItemFromCart = function () {
   const img = item.querySelector('.cart__img img').src;
   const imgStartIndex = img.indexOf('img/');
 
+  item.style.height = `${item.getBoundingClientRect().height}px`;
+
+  setTimeout(() => item.classList.add('deleting'), 1);
+
   const deletedItem = cartedItemsArr.findIndex(
     item => item.img === img.slice(imgStartIndex)
   );
+
   cartedItemsArr.splice(deletedItem, 1);
   cartedProducts.splice(img, 1);
 
-  persistItem(cartedItemsArr);
+  persistItem('cartedItem', cartedItemsArr);
   persistProduct(cartedProducts, 'cartedProducts');
 
-  addCartToPage();
+  setTimeout(() => addCartToPage(), 1000);
 };
 
 if (window.location.pathname === '/html/cart.html') {

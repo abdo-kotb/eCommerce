@@ -626,6 +626,12 @@ a:visited:hover {
 .cart__item {
   padding-bottom: 1.5rem;
   border-bottom: 2px solid #ccc;
+  transition: opacity 0.3s, height 1s;
+}
+.cart__item.deleting {
+  opacity: 0;
+  height: 0 !important;
+  visibility: hidden;
 }
 @media only screen and (max-width: 36em) {
   .cart__item {

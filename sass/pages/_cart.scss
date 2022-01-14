@@ -7,6 +7,13 @@
   &__item {
     padding-bottom: 1.5rem;
     border-bottom: 2px solid #ccc;
+    transition: opacity $def-transition, height 1s;
+
+    &.deleting {
+      opacity: 0;
+      height: 0 !important;
+      visibility: hidden;
+    }
 
     @include respond(xs) {
       text-align: center;
